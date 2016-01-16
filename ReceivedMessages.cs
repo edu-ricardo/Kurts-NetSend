@@ -125,9 +125,15 @@ namespace KurtsNetSend
       uint bytesWritten;
       return NativeMethods.WriteFile(writeHandle, totalBytes, (uint) totalCount, out bytesWritten, ref _stnOverlap);
     }
-  }
 
-  internal static class NativeMethods
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            Clipboard.SetText(listView1.SelectedItems[0].SubItems[3].Text);
+            MessageBox.Show("Texto copiado para a area de transferencia.");
+        }
+    }
+
+    internal static class NativeMethods
   {
     [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
     internal static extern SafeFileHandle CreateMailslot(string lpName,

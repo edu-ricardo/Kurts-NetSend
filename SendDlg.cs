@@ -30,5 +30,10 @@ namespace KurtsNetSend
       fromTextBox.Text = Environment.MachineName;
       ActiveControl = messageTextBox;
     }
-  }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

@@ -36,15 +36,16 @@ namespace KurtsNetSend
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.Time = new System.Windows.Forms.ColumnHeader();
-            this.Sender = new System.Windows.Forms.ColumnHeader();
-            this.Receiver = new System.Windows.Forms.ColumnHeader();
-            this.Message = new System.Windows.Forms.ColumnHeader();
+            this.Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Sender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Receiver = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Message = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.BalloonTipText = "Envia mensagens para computadores da rede.";
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Kurt\'s NetSend";
@@ -53,29 +54,30 @@ namespace KurtsNetSend
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuPopup;
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sendMessageToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 48);
             // 
             // sendMessageToolStripMenuItem
             // 
             this.sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
-            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.sendMessageToolStripMenuItem.Text = "Send Message";
             this.sendMessageToolStripMenuItem.Click += new System.EventHandler(this.sendMessageToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // listView1
@@ -85,6 +87,7 @@ namespace KurtsNetSend
             this.Sender,
             this.Receiver,
             this.Message});
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
@@ -92,6 +95,7 @@ namespace KurtsNetSend
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // Time
             // 
@@ -121,9 +125,9 @@ namespace KurtsNetSend
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReceivedMessages";
             this.Text = "Kurt\'s NetSend";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReceivedMessages_FormClosing);
             this.Load += new System.EventHandler(this.ReceivedMessages_Load);
             this.Shown += new System.EventHandler(this.ReceivedMessages_Shown);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReceivedMessages_FormClosing);
             this.Resize += new System.EventHandler(this.ReceivedMessages_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -139,9 +143,9 @@ namespace KurtsNetSend
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Time;
         private System.Windows.Forms.ColumnHeader Sender;
-        private System.Windows.Forms.ColumnHeader Message;
         private System.Windows.Forms.ColumnHeader Receiver;
         private System.Windows.Forms.ToolStripMenuItem sendMessageToolStripMenuItem;
+        public System.Windows.Forms.ColumnHeader Message;
     }
 }
 
